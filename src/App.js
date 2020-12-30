@@ -1,45 +1,22 @@
 // import { computeHeadingLevel } from '@testing-library/react';
 import React from 'react';
-import PropTypes from "prop-types";
-// import { findAllByDisplayValue } from '@testing-library/react';
 
-const foodILike = [
-  {
-    id: 1,
-    name: "Kimchi",
-    image: 
-      "https://admin.cjrecipe.com:9007/images/theKitchen/PHON/0000001651/0000006094/0000001651.jpg",
-    rating: 2.6
-  },
-  {
-    id: 2,
-    name: "Samgyeopsal",
-    image:
-      "https://recipe1.ezmember.co.kr/cache/recipe/2015/05/22/e1af3baa780984f52bedf67991b49c081.jpg",
-    rating: 1
+
+class App extends React.Component{
+  state = {
+    isLoading: true
   }
-];
 
-function Food({name, picture, rating}) {
-  return <div>
-    <h2>I like {name}</h2>
-    <h4>{rating}/5.0</h4>
-    <img src={picture} alt={name} />
-  </div>;
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({isLoading: false});
+    }, 6000);
+  }
+
+  render() {
+    const {isLoading} = this.state;
+    return <div>{isLoading ? "Loading..." : "we are ready"}</div>;
+  }
 }
 
-Food.propTypes = {
-  name: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired,
-  rating: PropTypes.number
-};
-
-function App() {
-  return( 
-  <div>
-    {foodILike.map(dish => (<Food key={dish.id} 
-    name={dish.name} picture={dish.image} rating={dish.rating} />))}
-  </div> 
-    );
-}
 export default App;
