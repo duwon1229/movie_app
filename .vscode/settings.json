@@ -1,0 +1,10 @@
+{
+    "editor.formatOnSave": true,
+    "prettier.trailingComma": "none",
+    "launch": {
+
+        "configurations": [],
+        "compounds": []
+    },
+    "prettier.arrowParens": "avoid",
+}
